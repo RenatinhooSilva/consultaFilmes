@@ -1,6 +1,4 @@
-import { HomeComponent } from './../home/home.component';
 import { Movie } from './../Models/movies';
-import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -10,9 +8,6 @@ import { Injectable } from '@angular/core';
 export class MoviesService {
   apiUrl: string;
   apiKey: string;
-
-  // apiUrlSecond: string;
-  // apiKey: string;
 
   constructor(private http: HttpClient) {
     this.apiKey = '8f0c971b28cebb2b93d0199d897ea8c2';
@@ -31,12 +26,5 @@ export class MoviesService {
     moviesFormatted = movies.map((m) => new Movie(m));
     return moviesFormatted;
 
-    // movies.forEach(movie => {
-    //    private movieOb: Movie = new Movie {
-    //     title = movie['title'],
-    //     overview = movie['overview'],
-    //     year = movie['year']
-    // }
-    // })
   }
 }

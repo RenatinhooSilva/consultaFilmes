@@ -6,5 +6,17 @@
     <input type="text" id="pesquisar" placeholder="Digite o nome do filme..." />
     <button type="submit" mat-button (click)="searchMovies()">Buscar</button>
   </mat-card-actions>
-
 </mat-card>
+
+<div class="filmeFundo">
+  <!-- <ul > -->
+  <!--
+    <li>{{filme['title']}}</li>
+    <li class="lista">{{filme?.['release_date']}}</li> -->
+
+  <mat-grid-list *ngFor="let filme of filmes" cols="2" rowHeight="2:1">
+    <img src="https://www.themoviedb.org/t/p/w500/{{filme?.['poster_path']}}"/>
+    <mat-grid-tile>{{ filme["title"] }}</mat-grid-tile>
+  </mat-grid-list>
+  <!-- </ul> -->
+</div>

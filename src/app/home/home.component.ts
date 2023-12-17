@@ -7,16 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  filmes = [];
   constructor(public movieService: MoviesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   searchMovies() {
     const filme = (<HTMLInputElement>document.getElementById('pesquisar'))
       .value;
-    this.movieService.searchingMovies(filme).then((res) => {
-      let filmes = this.movieService.mapMovis(res['results']);
-      console.log(filmes);
+    this.movieService.searchingMovies(filme).then(res => {
+      this.filmes = res.results;
+      console.log(this.filmes);
+
+      // this.movieService.mapMovis(res['results']);
+      // console.log(filmes);
     });
   }
 }

@@ -8,10 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 import { AuthenticationService } from './login/authentication.service';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MoviesService } from './services/service-movies.service';
+import { AuthGuard } from './Guards-Router/auth-guard';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent],
@@ -24,9 +29,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatGridListModule,
     HttpClientModule,
+    RouterTestingModule
+
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, MoviesService, HttpClient, AuthGuard, Router],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
